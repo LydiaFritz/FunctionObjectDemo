@@ -44,7 +44,7 @@ int main() {
 	//EXAMPLE 2
 	//CREATING A FUNCTION POINTER WITHOUT USING AUTO
 	void(*myFunction)(std::string) = sayName;
-	myFunction("Sister");
+	myFunction("Lillian");
 
 	double(*averagingFunc)(double, double, double) = getAverage;
 	std::cout << averagingFunc(2.3, 4.5, 6.889) << std::endl;
