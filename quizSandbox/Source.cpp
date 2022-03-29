@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
 
 class A {
 private:
@@ -31,9 +33,11 @@ void sayName(std::string name) {
 	}
 	std::cout << std::endl;
 }
-int main() {
 
-	
+
+
+
+int main() {
 
 	//EXAMPLE 1
 	//ASSIGNING A FUNCTION TO A VARIABLE
@@ -72,7 +76,16 @@ int main() {
 	}
 	std::cout << std::endl;
 
-	
+
+	//EXAMPLE 5
+	//USING A LAMBDA EXPRESSION AS A PARAMETER TO A FUNCTION
+
+	std::vector<int> myVec = { 81,1,83,55,32,7,5,11,64,78,32,5,7889,2 };
+
+	auto it = std::find_if(myVec.begin(), myVec.end(), [](int value) { return (value%8) == 0; });
+
+	std::cout << *it << std::endl;
+	return 0;
 
 
 
