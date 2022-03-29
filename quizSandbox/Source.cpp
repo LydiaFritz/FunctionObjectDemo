@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <time.h>
 
 class A {
 private:
@@ -20,8 +21,6 @@ public:
 	}
 };
 
-
-
 double getAverage(double a, double b, double c) {
 	return (a + b + c) / 3.0;
 }
@@ -38,6 +37,8 @@ void sayName(std::string name) {
 
 
 int main() {
+
+	srand(time(NULL));
 
 	//EXAMPLE 1
 	//ASSIGNING A FUNCTION TO A VARIABLE
@@ -80,11 +81,17 @@ int main() {
 	//EXAMPLE 5
 	//USING A LAMBDA EXPRESSION AS A PARAMETER TO A FUNCTION
 
-	std::vector<int> myVec = { 81,1,83,55,32,7,5,11,64,78,32,5,7889,2 };
+	std::vector<int> myVec;
+	for (int i = 0; i < 1000; i++) {
+		myVec.push_back(rand() % 1000);
+	}
 
-	auto it = std::find_if(myVec.begin(), myVec.end(), [](int value) { return (value%8) == 0; });
+	//auto it = std::find_if(myVec.begin(), myVec.end(), [](int value) { return (value%8) == 0; });
 
-	std::cout << *it << std::endl;
+	int count = std::count_if(myVec.begin(), myVec.end(), [](int value) {return value % 8 == 0; });
+	
+
+	std::cout << count << std::endl;
 	return 0;
 
 
